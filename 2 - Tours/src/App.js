@@ -9,6 +9,11 @@ function App() {
   const [loading, setLoading] = useState(true); ///Variable d'état pour le chargement de la page initialisée à "true"
   const [tours, setTours] = useState([]); ///Variable qui va stocker les voyages initialisée à un tableau vide
   
+  const removeTour = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  }
+
   const fetchTours = async ()=> {
     setLoading(true); ///Set la variable "loading" à "true"
     
@@ -36,9 +41,19 @@ function App() {
     )
   } ///Si la variable loading est "true" alors on initialise la page Loading
 
+  if (tours.length === 0){
+    return(
+      <main>
+        <div className='title'>
+          <h2>No tours left</h2>
+          <button className='btn' onClick={ ()=> fetchTours() }>Refresh 💦</button>
+        </div>
+      </main>
+    )
+  }
   return (
     <main>
-      <Tours tours={tours}/>
+      <Tours tours={tours} removeTour={removeTour}/>
     </main>
   )
 }

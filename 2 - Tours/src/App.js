@@ -16,10 +16,10 @@ function App() {
 
   const fetchTours = async ()=> {
     setLoading(true); ///Set la variable "loading" à "true"
-    
-    try {
       const response = await fetch(url); ///va récupérer les datas sur le site
       const rawResponse = await response.json(); ///méthode json qui permet d'exploiter les données au format json
+    
+      try {
       setLoading(false);
       setTours(rawResponse);
       console.log("datas::::",rawResponse);
@@ -27,6 +27,14 @@ function App() {
       setLoading(false);
       console.log(error);
     }
+      // fetch(rawResponse)
+      // .then(function(response){
+      //   console.log("datas::::",rawResponse);
+      // })
+      // .catch(function(error){
+      //   setLoading(false);
+      //   console.log(error);
+      // });
   }
 
   useEffect(()=>{
@@ -51,11 +59,13 @@ function App() {
       </main>
     )
   }
-  return (
-    <main>
-      <Tours tours={tours} removeTour={removeTour}/>
-    </main>
-  )
+  else if (tours.length !== 0){
+    return (
+      <main>
+        <Tours tours={tours} removeTour={removeTour}/>
+      </main>
+    )
+  }
 }
 
 export default App

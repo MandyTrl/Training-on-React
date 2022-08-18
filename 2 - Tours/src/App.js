@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Loading from './Loading' ///Import de la page de chargement 
 import Tours from './Tours' ///Import du composant Tours
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
 const url = 'https://course-api.com/react-tours-project' ///Import des données (tableau d'objets via un lien url)
+
 function App() {
   
   const [loading, setLoading] = useState(true); ///Variable d'état pour le chargement de la page initialisée à "true"
@@ -62,7 +63,9 @@ function App() {
   else if (tours.length !== 0){
     return (
       <main>
-        <Tours tours={tours} removeTour={removeTour}/>
+        <Suspense fallback={<div>loading...</div>}>
+          <Tours tours={tours} removeTour={removeTour}/>
+        </Suspense>
       </main>
     )
   }

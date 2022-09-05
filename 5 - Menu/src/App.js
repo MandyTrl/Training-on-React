@@ -5,7 +5,7 @@ import items from './data';
 
 function App() {
   const [menuItems, SetMenuItems] = useState(items); ///Variable d'état qui va setter les données du fichier "data.js"
-  const [categories, SetCategories] = useState([]); ///Variable d'état qui va setter le composant "Catégories" initialisée à un tableau vide
+  const categories = useState([]); ///Variable d'état qui va setter le composant "Catégories" initialisée à un tableau vide
   
   const filterItems = (category) => {
     if(category === "all"){

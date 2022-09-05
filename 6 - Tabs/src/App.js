@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaAngleDoubleRight } from 'react-icons/fa' ///Import des icones
 const url = 'https://course-api.com/react-tabs-project' ///Variable qui stocke les datas
 
@@ -12,7 +12,6 @@ function App() {
     const RAWresponse = await fetch(url);
     const newJobs = await RAWresponse.json();
     setJobs(newJobs);
-    console.log("DATAS:::",newJobs);
     setLoading(false);
   } ///Fonction async qui va permettre de setter les jobs (grace aux datas dans l'url) et le loading 
 
@@ -34,7 +33,6 @@ function App() {
       <div className="underline"/>
       
       <div className="job-center">
-        {/* btn container */}
         <div className="btn-container"> 
           {jobs.map( (item, index) => {
             return (
@@ -49,7 +47,7 @@ function App() {
             )
           })}
         </div>
-        {/* jobs info */}
+        
         <article className="job-info">
           <h3>{title}</h3>
           <h4>{company}</h4>

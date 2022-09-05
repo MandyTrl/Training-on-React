@@ -1,6 +1,5 @@
 import React from 'react';
 import Review from './Review';
-import { FaGithubSquare } from 'react-icons/fa'; ///Import des icons de la librairie react-icons
 function App() {
   return <main>
     <section className="container">

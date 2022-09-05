@@ -14,7 +14,7 @@ const Review = () => {
       return people.length -1;
     }
     return number;
-  } 
+  } ///Vérification du nbr envoyé en paramètre et sette le nbr pour tjrs retourner un élément du tableau
   const nextPerson= ()=> {
     setIndex( (index)=> {
       let newIndex = index + 1;

@@ -5,7 +5,7 @@ import data from './data'; ///Import des données via le fichier "data.js"
 
 function App() {
   
-  const [people, setPeople] = useState(data); ///Variable d'état permettant de setter les revues initialisée avec les données (déjà sous forme de tableau) de la variable "data"
+  const people = useState(data); ///Variable d'état permettant de setter les revues initialisée avec les données (déjà sous forme de tableau) de la variable "data"
   const [index, setIndex] = useState(0); ///Variable d'état permettant de modifier l'index initialisée à "0"
   
   useEffect( ()=>{

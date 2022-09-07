@@ -88,6 +88,7 @@ h2 {
 }
 h3 {
   font-size: 1.25rem;
+  margin-left: 35px;
 }
 h4 {
   font-size: 0.875rem;
@@ -183,10 +184,11 @@ input.error {
   border: 2px solid var(--clr-red-dark);
 }
 .colors {
-  min-height: calc(100vh - 100px);
+  margin: 0px 70px;
+  min-height: calc(93vh - 100px);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(223.33px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(96px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(80px, 1fr));
 }
 .color {
   padding: 1rem 2rem;

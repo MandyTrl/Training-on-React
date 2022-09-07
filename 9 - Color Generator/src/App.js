@@ -6,7 +6,7 @@ import Values from 'values.js'
 function App() {
   const [color, setColor] = useState(''); ///Variable qui set les couleurs initalisée à un string vide (nom de la couleur)
   const [error, setError] = useState(false); ///Variable qui set les erreurs initialisée à un booléen "false"
-  const [list, setList] = useState([]); ///Variable qui set la liste des couleurs initialisée à un tableau vide
+  const [list, setList] = useState(new Values('#ff7675').all(10)); ///Variable qui set la liste des couleurs initialisée à un tableau vide
   
   const handleSubmit = (e)=> {
     e.preventDefault();
@@ -39,7 +39,11 @@ function App() {
     </form>
   </section>
   <section className ="colors">
-    <h4>List goes here</h4>
+    {list.map((color, index) =>{
+      console.log("Color::: ", color)
+      const hex = color.hex;
+      return <SingleColor key={index} {...color} index={index} hexColor ={color.hex}/>
+    })}
   </section>
   </>
   )
